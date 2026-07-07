@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="glass-panel p-4 p-md-5">
+            <h2 class="orbitron text-neon-blue mb-4 text-center"><i class="fa-solid fa-lock"></i> Hide Message</h2>
+            
+            <form id="encodeForm" onsubmit="handleEncode(event)">
+                <div class="mb-4">
+                    <label class="form-label text-neon-blue">1. Select PNG Image</label>
+                    <div class="drop-zone" id="dropZone">
+                        <i class="fa-solid fa-cloud-arrow-up fa-3x mb-3 text-white-50"></i>
+                        <p class="mb-0 text-white-50">Drag & Drop or Click to Browse</p>
+                        <input type="file" id="imageInput" name="image" accept=".png" class="d-none">
+                    </div>
+                    <img id="imagePreview" class="image-preview mx-auto d-block">
+                    
+                    <div class="mt-3 text-white-50 small d-none" id="capacityInfo">
+                        <div>Estimated Capacity: <span id="maxCapacity" class="text-neon-green">0</span> bytes</div>
+                        <div>Remaining: <span id="remCapacity" class="text-neon-green">0</span> bytes</div>
+                        <div class="progress mt-2">
+                            <div class="progress-bar" id="capacityBar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-neon-blue">2. Secret Message</label>
+                    <textarea class="form-control" name="message" id="messageInput" rows="4" placeholder="Enter the secret message to hide..." required></textarea>
+                    <div class="text-end mt-1 small text-white-50">Length: <span id="msgLength">0</span></div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-neon-blue">3. Encryption Password (AES-256)</label>
+                    <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Enter strong password..." required>
+                    <div class="pwd-strength mt-2" id="pwdStrength"></div>
+                </div>
+
+                <div class="loader-wrapper" id="loader">
+                    <div class="cyber-loader"></div>
+                    <span class="ms-3 text-neon-blue">Processing...</span>
+                </div>
+
+                <button type="submit" class="btn btn-cyber w-100 py-3 mt-3" id="submitBtn">
+                    <i class="fa-solid fa-shield"></i> Encode & Download
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

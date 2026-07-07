@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="orbitron text-neon-blue display-4 mb-3">StegShield</h1>
+    <p class="lead text-white-50">Secure Image Steganography & Digital Forensics Toolkit</p>
+</div>
+
+<div class="row g-4 justify-content-center">
+    <div class="col-md-6 col-lg-3">
+        <a href="{{ url_for('encode') }}" class="glass-panel dash-card p-4 text-center">
+            <i class="fa-solid fa-lock dash-icon text-neon-blue"></i>
+            <h4 class="orbitron text-white mt-2">Hide Secret</h4>
+            <p class="text-white-50 small mt-2">Encrypt and embed text into an image securely.</p>
+        </a>
+    </div>
+    
+    <div class="col-md-6 col-lg-3">
+        <a href="{{ url_for('decode') }}" class="glass-panel dash-card p-4 text-center">
+            <i class="fa-solid fa-unlock dash-icon text-neon-blue"></i>
+            <h4 class="orbitron text-white mt-2">Extract Secret</h4>
+            <p class="text-white-50 small mt-2">Decrypt and extract hidden messages from images.</p>
+        </a>
+    </div>
+    
+    <div class="col-md-6 col-lg-3">
+        <a href="{{ url_for('analysis') }}" class="glass-panel dash-card p-4 text-center">
+            <i class="fa-solid fa-microscope dash-icon text-neon-blue"></i>
+            <h4 class="orbitron text-white mt-2">Analyze Image</h4>
+            <p class="text-white-50 small mt-2">Forensic analysis and metadata extraction.</p>
+        </a>
+    </div>
+
+</div>
+{% endblock %}

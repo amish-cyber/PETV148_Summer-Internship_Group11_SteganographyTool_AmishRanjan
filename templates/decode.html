@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="glass-panel p-4 p-md-5">
+            <h2 class="orbitron text-neon-green mb-4 text-center"><i class="fa-solid fa-unlock"></i> Extract Message</h2>
+            
+            <form id="decodeForm" onsubmit="handleDecode(event)">
+                <div class="mb-4">
+                    <label class="form-label text-neon-green">1. Select Encoded PNG Image</label>
+                    <div class="drop-zone" id="dropZone">
+                        <i class="fa-solid fa-file-image fa-3x mb-3 text-white-50"></i>
+                        <p class="mb-0 text-white-50">Drag & Drop or Click to Browse</p>
+                        <input type="file" id="imageInput" name="image" accept=".png" class="d-none">
+                    </div>
+                    <img id="imagePreview" class="image-preview mx-auto d-block">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-neon-green">2. Decryption Password</label>
+                    <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Enter decryption password..." required>
+                </div>
+
+                <div class="loader-wrapper" id="loader">
+                    <div class="cyber-loader"></div>
+                    <span class="ms-3 text-neon-green">Decrypting...</span>
+                </div>
+
+                <button type="submit" class="btn btn-cyber btn-cyber-green w-100 py-3 mt-3" id="submitBtn">
+                    <i class="fa-solid fa-key"></i> Decrypt Secret
+                </button>
+            </form>
+
+            <div id="resultBox" class="mt-4 p-3 rounded d-none" style="background: rgba(57, 255, 20, 0.1); border: 1px solid var(--neon-green);">
+                <h5 class="text-neon-green mb-2"><i class="fa-solid fa-check-circle"></i> Extracted Secret:</h5>
+                <p id="resultText" class="text-white mb-0" style="white-space: pre-wrap; font-family: monospace;"></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
